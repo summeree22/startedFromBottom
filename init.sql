@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS travel_entries (
+	id SERIAL PRIMARY KEY,
+	title TEXT NOT NULL,
+	description TEXT,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

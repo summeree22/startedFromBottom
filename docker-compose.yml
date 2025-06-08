@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: sFb-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: sFb_db
+      POSTGRES_USER: sFb_user
+      POSTGRES_PASSWORD: sFb_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - sFb-network
+    
+networks:
+  sFb-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
