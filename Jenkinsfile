@@ -7,10 +7,17 @@ pipeline {
 		FRONTEND_IMAGE = "sfb-frontend"
 		FRONTEND_CONTAINER = "sfb-frontend-container"
 		NETWORK_NAME = "sfb-network"
-		ENV_FILE = ".env"
 	}
 
 	stages {
+		stage('Prepare Env') {
+			 steps {
+				withCredentials([file(credentialsId: '811b5c6c-064b-4a7e-896a-f6a5701ee92b', variable: 'ENV_FILE')]) {
+					sh 'cp $ENV_FILE backend/.env'
+					}
+			}
+		}
+
 		stage('Setup') {
          		steps {
                 		sh "git config --global --add safe.directory \$PWD"
