@@ -50,7 +50,7 @@ pipeline {
 			steps {
 				sh """
 				docker stop ${BACKEND_CONTAINER} || true
-				docker rum ${BACKEND_CONTAINER} || true
+				docker rm ${BACKEND_CONTAINER} || true
 				docker stop ${FRONTEND_CONTAINER} || true
 				docker rm ${FRONTEND_CONTAINER} || true
                 		"""
