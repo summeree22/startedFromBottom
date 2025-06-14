@@ -6,7 +6,7 @@ pipeline {
 		BACKEND_CONTAINER = "sFb-backend"
 		FRONTEND_IMAGE = "sfb-frontend"
 		FRONTEND_CONTAINER = "sFb-frontend"
-		NETWORK_NAME = "sfb-network"
+		NETWORK_NAME = "sFb-network"
 		ENV_FILE = ".env"
 	}
 
