@@ -7,6 +7,7 @@ pipeline {
 		FRONTEND_IMAGE = "sfb-frontend"
 		FRONTEND_CONTAINER = "sFb-frontend"
 		NETWORK_NAME = "sfb-network"
+		ENV_FILE = ".env”
 	}
 
 	stages {
