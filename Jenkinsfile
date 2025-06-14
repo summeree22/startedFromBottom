@@ -11,6 +11,12 @@ pipeline {
 	}
 
 	stages {
+		stage('Setup') {
+         		steps {
+                		sh "git config --global --add safe.directory \$PWD"
+            		}
+        	}
+
 		stage('Clone Repository') {
 			steps {
 				checkout scm
