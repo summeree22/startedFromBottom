@@ -1,3 +1,4 @@
 node_modules/
 .env
-postgres_data/
+postgres_data
+npm-debug.log/
