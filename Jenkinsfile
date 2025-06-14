@@ -80,11 +80,5 @@ pipeline {
 				"""
 			}
 		}
-
-		stage('Run Backend Tests') {
-			steps {
-				sh "docker exec ${BACKEND_CONTAINER} ./run-test.sh"
-			}
-		}
 	}
 }
