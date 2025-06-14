@@ -2,9 +2,9 @@ pipeline {
 	agent any
 	
 	environment {
-		BACKEND_IMAGE = "sFb-backend"
+		BACKEND_IMAGE = "sfb-backend"
 		BACKEND_CONTAINER = "sFb-backend"
-		FRONTEND_IMAGE = "sFb-frontend"
+		FRONTEND_IMAGE = "sfb-frontend"
 		FRONTEND_CONTAINER = "sFb-frontend"
 		NETWORK_NAME = "startedfrombottom_sFb-network"
 		ENV_FILE = ".env"
