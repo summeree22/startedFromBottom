@@ -3,9 +3,9 @@ pipeline {
 	
 	environment {
 		BACKEND_IMAGE = "sfb-backend"
-		BACKEND_CONTAINER = "sfb-backend-container"
+		BACKEND_CONTAINER = "sfb-backend"
 		FRONTEND_IMAGE = "sfb-frontend"
-		FRONTEND_CONTAINER = "sfb-frontend-container"
+		FRONTEND_CONTAINER = "sfb-frontend"
 		NETWORK_NAME = "sfb-network"
 	}
 
