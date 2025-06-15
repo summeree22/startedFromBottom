@@ -86,6 +86,7 @@ pipeline {
 		stage('Run Backend Tests') {
 			steps {
 				sh "docker exec ${BACKEND_CONTAINER} chmod +x ./run-test.sh"
+				sh "cd /var/jenkins_home/workspace/startedFromBottom-CI/backend"
 				sh "./run-tests.sh"
             		}
         	}
