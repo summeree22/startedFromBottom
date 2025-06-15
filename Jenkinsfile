@@ -21,7 +21,8 @@ pipeline {
 
 		stage('Setup') {
          		steps {
-                		sh "git config --global --add safe.directory \$PWD"
+				def workspaceDir = pwd()
+                		sh "git config --global --add safe.directory ${workspaceDir}"
             		}
         	}
 
@@ -83,7 +84,7 @@ pipeline {
 		stage('Run Backend Tests') {
 			steps {
 				sh "docker exec ${BACKEND_CONTAINER} chmod +x ./run-test.sh"
-				sh "docker exec ${BACKEND_CONTAINER} ./run-tests.sh"
+				sh "./run-tests.sh"
             		}
         	}
 	}
