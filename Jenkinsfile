@@ -21,9 +21,11 @@ pipeline {
 
 		stage('Setup') {
          		steps {
-				def workspaceDir = pwd()
-                		sh "git config --global --add safe.directory ${workspaceDir}"
-            		}
+				script {
+					def workspaceDir = pwd()
+                			sh "git config --global --add safe.directory ${workspaceDir}"
+	            		}
+			}
         	}
 
 		stage('Clone Repository') {
