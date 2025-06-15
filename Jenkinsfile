@@ -86,7 +86,7 @@ pipeline {
 		stage('Run Backend Tests') {
 			steps {
 				sh "docker exec ${BACKEND_CONTAINER} chmod +x ./run-test.sh"
-				sh "./run-test.sh"
+				sh "docker exec ${BACKEND_CONTAINER} ./run-test.sh"
             		}
         	}
 	}
