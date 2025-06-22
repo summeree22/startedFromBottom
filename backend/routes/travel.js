@@ -23,6 +23,19 @@ router.get('/', async (req, res) => {
 	res.json(result.rows);
 });
 
+router.get('/:id', async (req, res) => {
+	const { id } = req.params;
+	try {
+		const result = await pool.query('SELECT * FROM travel_entries WHERE id = $1', [id]);
+		if (result.rows.length === 0) {
+			return res.status(404).json({ message: 'Entry not found' });
+		}
+		res.json(result.rows[0]);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+});
+
 router.put('/:id', async (req, res) => {
 	const { id } = req.params;
 	const { country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng } = req.body;
