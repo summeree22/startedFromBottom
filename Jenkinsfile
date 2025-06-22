@@ -14,7 +14,7 @@ pipeline {
 	stages {
 		stage('Prepare Env') {
 			 steps {
-				withCredentials([file(credentialsId: '811b5c6c-064b-4a7e-896a-f6a5701ee92b', variable: 'ENV_FILE')]) {
+				withCredentials([file(credentialsId: '210eff26-22df-4b66-aa63-302b20db020b', variable: 'ENV_FILE')]) {
 					sh 'cp $ENV_FILE backend/.env'
 					}
 			}
