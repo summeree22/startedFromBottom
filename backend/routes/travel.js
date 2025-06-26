@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+const upload = require('../upload');
 
-router.post('/', async (req, res) => {
-	const { country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng } = req.body;
+router.post('/', upload.single('image'), async (req, res) => {
+	const { location, date, description, x, y } = req.body;
+	const image_url = req.file?.location || null;
 
 	try {
 	const result = await pool.query(
 		`INSERT INTO travel_entries
-		(country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng)
-		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
-		[country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng]
+		(location, date, description, x, y, image_url)
+		VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+		[location, date, description, parseInt(x), parseInt(y), image_url]
 	);
 	res.status(201).json(result.rows[0]);
 	} catch (err) {
@@ -36,12 +38,13 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', upload.single('image'), async (req, res) => {
 	const { id } = req.params;
-	const { country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng } = req.body;
+	const { location, date, description, x, y } = req.body;
+	const image_url = req.file?.location || req.body.image_url || null;
 	const result = await pool.query (
-		'UPDATE travel_entries SET country = $1, city = $2, date = $3, title = $4, description = $5, favorite_food = %6, favorite_music = $7, image_url = $8, lat = $9, lng = $10 WHERE id = $11 RETURNING *',
-		[country, city, date, title, description, favorite_food, favorite_music, image_url, lat, lng, id]
+		'UPDATE travel_entries SET location = $1, date = $2, description = $3, x = $4, y = $5, image_url = $6 WHERE id = $7  RETURNING *',
+		[location, date, description, parseInt(x), parseInt(y), image_url, id]
 	);
 	if (result.rows.length === 0) {
 		return res.status(404).json({ error: 'Entry not found' });

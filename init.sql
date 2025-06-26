@@ -1,14 +1,10 @@
 CREATE TABLE IF NOT EXISTS travel_entries (
 	id SERIAL PRIMARY KEY,
-	country VARCHAR(100),
-	city VARCHAR(100),
-	date DATE,
-	title TEXT,
+	location TEXT NOT NULL,
+	date DATE NOT NULL,
 	description TEXT,
-	favorite_food TEXT,
-	favorite_music TEXT,
+	x INT NOT NULL,
+	y INT NOT NULL,
 	image_url TEXT,
-	lat FLOAT,
-	lng FLOAT,
-	created_at TIMESTAMP DEFAULT NOW()
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
