@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Geostar+Fill&family=Forum&display=swap');
+
+.mainpage-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainpage-bg-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mainpage-bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+  filter: blur(100px);
+}
+
+/* Fixed, full-viewport noise overlay with reduced opacity and finer noise */
+.mainpage-noise-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none;
+  opacity: 0.12; /* Reduced from 0.25 */
+  z-index: 100;
+}
+
+.mainpage-text-group {
+  position: absolute;
+  left: 50%;
+  top: 18px; /* Figma Y position */
+  width: 1042px;
+  height: 283px;
+  z-index: 3;
+  transform: translateX(-50%);
+}
+
+.mainpage-text-group span {
+  position: absolute;
+  color: #40ff86;
+  -webkit-text-stroke: 2px #000;
+  white-space: pre;
+}
+
+/* PRADISE */
+.mainpage-pradise {
+  left: 0px;
+  top: 0px;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(48px, 10vw, 140px);
+  line-height: clamp(56px, 11vw, 172px);
+}
+
+/* is */
+.mainpage-is {
+  left: 564px;
+  top: 0px;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(48px, 10vw, 140px);
+  line-height: clamp(56px, 11vw, 172px);
+}
+
+/* WHERE */
+.mainpage-where {
+  left: 242px;
+  top: 135px;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(48px, 10vw, 140px);
+  line-height: clamp(56px, 11vw, 172px);
+}
+
+/* I */
+.mainpage-i {
+  left: 692px;
+  top: 37px;
+  font-family: 'Geostar Fill', cursive;
+  font-size: clamp(80px, 20vw, 250px);
+  line-height: clamp(90px, 22vw, 287px);
+}
+
+/* am */
+.mainpage-am {
+  left: 854px;
+  top: 135px;
+  font-family: 'Freckle Face', cursive;
+  font-size: clamp(48px, 10vw, 140px);
+  line-height: clamp(56px, 11vw, 172px);
+}
+
+
+/* Centered caption below the text group */
+.mainpage-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 5vh; /* 바닥에서 5% 위 */
+  transform: translateX(-50%);
+  width: min(41.9vw, 537px);
+  font-family: 'Forum', serif;
+  font-size: 16px; /* 고정 크기 유지 */
+  color: #000;
+  z-index: 4;
+  line-height: 1.2;
+  text-align: center;
+}
