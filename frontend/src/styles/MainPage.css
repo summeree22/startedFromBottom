@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Geostar+Fill&family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Geostar+Fill&family=Forum&family=Inter:wght@400&display=swap');
 
 .mainpage-root {
   position: relative;
@@ -33,7 +33,16 @@
   filter: blur(100px);
 }
 
-/* Fixed, full-viewport noise overlay with reduced opacity and finer noise */
+.mainpage-bg-darken {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
 .mainpage-noise-fixed {
   position: fixed;
   left: 0;
@@ -41,14 +50,14 @@
   width: 100vw !important;
   height: 100vh !important;
   pointer-events: none;
-  opacity: 0.12; /* Reduced from 0.25 */
+  opacity: 0.12;
   z-index: 100;
 }
-
+ 
 .mainpage-text-group {
   position: absolute;
   left: 50%;
-  top: 18px; /* Figma Y position */
+  top: 18px;
   width: 1042px;
   height: 283px;
   z-index: 3;
@@ -107,18 +116,258 @@
   line-height: clamp(56px, 11vw, 172px);
 }
 
-
-/* Centered caption below the text group */
 .mainpage-caption {
   position: absolute;
   left: 50%;
-  bottom: 5vh; /* 바닥에서 5% 위 */
+  bottom: 5vh;
   transform: translateX(-50%);
   width: min(41.9vw, 537px);
   font-family: 'Forum', serif;
-  font-size: 16px; /* 고정 크기 유지 */
+  font-size: 16px;
   color: #000;
   z-index: 4;
   line-height: 1.2;
   text-align: center;
+}
+
+/* ===== Polaroid Modal Styles ===== */
+.polaroid-modal {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.polaroid-popup.polaroid-popup-ratio {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  overflow: visible;
+}
+
+.polaroid-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-top: 0;
+  box-sizing: border-box;
+  width: min(90vw, 650px);
+  max-width: 650px;
+  height: 379px;
+  background: transparent;
+  position: relative;
+}
+
+/* Save/Close 버튼을 카드 우측 상단에 고정 */
+.polaroid-btn-group.polaroid-btn-group-top {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  gap: 0.7rem;
+  z-index: 10;
+}
+
+.polaroid-save,
+.polaroid-close {
+  background: transparent;
+  color: #222;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0;
+  padding: 0.2em 0.7em;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 0.18s;
+}
+.polaroid-save:hover,
+.polaroid-close:hover {
+  color: #111;
+  background: transparent;
+  box-shadow: none;
+}
+
+.polaroid-frame {
+  width: 218px;
+  min-width: 218px;
+  max-width: 218px;
+  height: 321px;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.13);
+  margin: 24px 32px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.polaroid-photo-area {
+  width: 182px;
+  height: 239px;
+  background: #d9d9d9;
+  border-radius: 0;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.polaroid-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  z-index: 1;
+}
+
+.polaroid-photo-upload-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  color: #222;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0;
+  padding: 0.2em 0.7em;
+  cursor: pointer;
+  box-shadow: none;
+  opacity: 1;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.polaroid-photo-upload-btn:hover {
+  color: #111;
+  background: transparent;
+  box-shadow: none;
+}
+
+.polaroid-photo-input {
+  display: none;
+}
+
+.polaroid-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 32px 24px 0;
+  min-width: 0;
+}
+
+.polaroid-fields label {
+  display: block;
+  margin-bottom: 1.1rem;
+  width: 100%;
+  text-align: right;
+}
+
+.polaroid-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 0.3rem;
+  text-align: right;
+}
+
+.polaroid-input,
+.polaroid-textarea,
+.underline-input {
+  width: 320px;
+  max-width: 100%;
+  font-size: 1rem;
+  padding: 0.4em 0;
+  border: none;
+  border-bottom: 2px solid #bbb;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  resize: none;
+  box-sizing: border-box;
+  margin-left: auto;
+  display: block;
+  outline: none;
+  color: #222;
+  transition: border-color 0.18s;
+}
+
+.polaroid-textarea {
+  min-height: 1.8em;
+  line-height: 1.2;
+  padding: 0.4em 0;
+  margin-bottom: 0;
+}
+
+.polaroid-input:focus,
+.polaroid-textarea:focus,
+.underline-input:focus {
+  border-bottom: 2px solid #222;
+  background: transparent;
+}
+
+.polaroid-input::placeholder,
+.polaroid-textarea::placeholder,
+.underline-input::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .polaroid-popup.polaroid-popup-ratio {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 0;
+  }
+  .polaroid-content {
+    flex-direction: column;
+    margin-top: 2.2rem;
+    width: 98vw;
+    max-width: 98vw;
+    height: auto;
+  }
+    .polaroid-frame {
+    margin: 16px auto 8px auto;
+  }
+  .polaroid-fields {
+    align-items: center;
+    padding: 0 8vw 18px 8vw;
+  }
+  .polaroid-input,
+  .polaroid-textarea,
+  .underline-input {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-family: 'Inter', sans-serif;
+  }
 }
