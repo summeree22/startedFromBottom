@@ -5,7 +5,12 @@ const PORT = process.env.PORT || 8080;
 const pool = require('./db');
 require('dotenv').config();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://54.252.193.253:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use('/travel', require('./routes/travel'));
 
