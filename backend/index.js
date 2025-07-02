@@ -6,7 +6,7 @@ const pool = require('./db');
 require('dotenv').config();
 
 app.use(cors({
-  origin: 'http://54.252.193.253:3000',
+  origin: 'http://13.239.234.124:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
