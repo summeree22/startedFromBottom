@@ -10,7 +10,10 @@ pipeline {
 		NETWORK_NAME = "startedfrombottom_sFb-network"
 		ENV_FILE = ".env"
 		FRONTEND_URL = credentials('FRONTEND_URL')
-		BACKEND_PORT = "8080"		
+		AWS_S3_BUCKET_NAME = credentials('aws-s3-bucket-name') 
+        	AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+        	AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')		
+		AWS_REGION = credentials('aws-region')
 	}
 
 	stages {
@@ -40,7 +43,14 @@ pipeline {
 		stage('Build Backend Docker Image') {
 			steps {
 				dir('backend') {
-					sh "docker build -t ${BACKEND_IMAGE}:latest ."
+					sh """
+                    			docker build \
+                     			--build-arg AWS_S3_BUCKET_NAME=$AWS_S3_BUCKET_NAME \
+                      			--build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+                      			--build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+                      			--build-arg FRONTEND_URL=$FRONTEND_URL \
+                      			-t ${BACKEND_IMAGE}:latest .
+                    			"""
 				}
 			}
 		}
