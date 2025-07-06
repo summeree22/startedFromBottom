@@ -120,7 +120,7 @@ docker-compose down
 docker-compose up -d
 ```
 
-You can test these with Postman using raw JSON + multipart/form-data for image upload.
+> You can test these with Postman using raw JSON + `multipart/form-data` for image upload.
 
 ## 📮 API Endpoints
 
@@ -130,8 +130,6 @@ You can test these with Postman using raw JSON + multipart/form-data for image u
 | POST   | `/api/travel`    | Upload new memory      |
 | PUT    | `/api/travel/:id`| Update memory info     |
 | DELETE | `/api/travel/:id`| Delete memory          |
-
-> You can test these with Postman using raw JSON + `multipart/form-data` for image upload.
 
 ![ClickAPolaroid](./ClickAPolaroid.png)
 When click a polaroid, this form pops up
