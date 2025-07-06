@@ -71,7 +71,6 @@
   white-space: pre;
 }
 
-/* PRADISE */
 .mainpage-pradise {
   left: 0px;
   top: 0px;
@@ -80,7 +79,6 @@
   line-height: clamp(56px, 11vw, 172px);
 }
 
-/* is */
 .mainpage-is {
   left: 564px;
   top: 0px;
@@ -89,7 +87,6 @@
   line-height: clamp(56px, 11vw, 172px);
 }
 
-/* WHERE */
 .mainpage-where {
   left: 242px;
   top: 135px;
@@ -98,7 +95,6 @@
   line-height: clamp(56px, 11vw, 172px);
 }
 
-/* I */
 .mainpage-i {
   left: 692px;
   top: 37px;
@@ -107,7 +103,6 @@
   line-height: clamp(90px, 22vw, 287px);
 }
 
-/* am */
 .mainpage-am {
   left: 854px;
   top: 135px;
@@ -130,7 +125,6 @@
   text-align: center;
 }
 
-/* ===== Polaroid Modal Styles ===== */
 .polaroid-modal {
   position: fixed;
   left: 0; top: 0; width: 100vw; height: 100vh;
@@ -172,7 +166,6 @@
   position: relative;
 }
 
-/* Save/Close 버튼을 카드 우측 상단에 고정 */
 .polaroid-btn-group.polaroid-btn-group-top {
   position: absolute;
   top: 1.2rem;

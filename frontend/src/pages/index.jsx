@@ -23,7 +23,7 @@ const MainPage = () => {
         const data = await response.json();
         setTravelEntries(data);
       } catch (err) {
-        console.error('데이터 불러오기 실패:', err);
+        console.error('Failed to load data:', err);
       }
     };
     fetchEntries();
@@ -63,14 +63,14 @@ const MainPage = () => {
         body: formData,
       });
 
-      if (!response.ok) throw new Error('서버 응답 실패');
+      if (!response.ok) throw new Error('Server did not response');
 
       const result = await response.json();
-      alert('저장되었습니다!');
+      alert('Saved!');
       setTravelEntries((prev) => [result, ...prev]);
     } catch (error) {
-      console.error('업로드 실패:', error);
-      alert('업로드 중 문제가 발생했습니다.');
+      console.error('Failed to upload:', error);
+      alert('Failed to upload.');
     }
 
     setShowPolaroid(false);
@@ -97,14 +97,14 @@ const MainPage = () => {
         }),
       });
 
-      if (!response.ok) throw new Error('수정 실패');
+      if (!response.ok) throw new Error('Failed to update');
 
       const updated = await response.json();
       setTravelEntries((prev) => prev.map(e => e.id === updated.id ? updated : e));
-      alert('수정되었습니다!');
+      alert('Updated!');
     } catch (err) {
-      console.error('수정 실패:', err);
-      alert('수정 중 문제가 발생했습니다.');
+      console.error('Failed to update:', err);
+      alert('Failed to update.');
     }
     setShowPolaroid(false);
     setSelectedEntry(null);
@@ -117,10 +117,10 @@ const MainPage = () => {
         method: 'DELETE'
       });
       setTravelEntries((prev) => prev.filter(e => e.id !== selectedEntry.id));
-      alert('삭제되었습니다!');
+      alert('Deleted!');
     } catch (err) {
-      console.error('삭제 실패:', err);
-      alert('삭제 중 문제가 발생했습니다.');
+      console.error('Failed to delete:', err);
+      alert('Failed to deleted.');
     }
     setShowPolaroid(false);
     setSelectedEntry(null);

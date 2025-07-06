@@ -4,16 +4,16 @@ SERVER_PID=$!
 
 sleep 3
 
-echo "🧪 테스트 중..."
+echo "🧪 Testing..."
 if curl -s http://localhost:8080 > /dev/null; then
-	echo "✅ 서버 응답 성공"
+	echo "✅ Successfully responsed from server"
 else
-	echo "❌ 서버 응답 없음"
+	echo "❌ No response from server"
 fi
 
 if ps -p $SERVER_PID > /dev/null; then
 	kill $SERVER_PID
-	echo "🛑 서버 프로세스 종료"
+	echo "🛑 Stop server process"
 else
-	echo "❌ 서버 프로세스가 이미 종료됨"
+	echo "❌ Server process has already stopped"
 fi

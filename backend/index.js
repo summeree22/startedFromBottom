@@ -6,7 +6,7 @@ const pool = require('./db');
 require('dotenv').config();
 
 app.use(cors({
-  origin: 'http://13.239.234.124:3000',
+  origin: proces.env.FRONTEND_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -15,17 +15,9 @@ app.use(express.json());
 app.use('/travel', require('./routes/travel'));
 
 app.get('/', (req, res) => {
-  res.send('✅ Express 서버가 잘 작동하고 있어요!');
+  res.send('✅ Express server is working!');
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 서버 실행 중: http://localhost:${PORT}`);
-});
-
-pool.query('SELECT NOW()', (err,res) => {
-	if (err) {
-		console.error('❌ DB 연결 실패:', err);
-	} else {
-		console.log('✅ DB 연결 성공:', res.rows[0]);
-	}
+  console.log(`🚀 Server is online: http://localhost:${PORT}`);
 });
