@@ -6,7 +6,7 @@ const pool = require('./db');
 require('dotenv').config();
 
 app.use(cors({
-  origin: proces.env.FRONTEND_URL,
+  origin: process.env.FRONTEND_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
