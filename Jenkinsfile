@@ -38,13 +38,7 @@ pipeline {
 		stage('Build Backend Docker Image') {
 			steps {
 				dir('backend') {
-					withCredentials([string(credentialsId: 'react-backend-url', variable: 'REACT_APP_API_BASE_URL')]) {
-                				sh """
-                				docker build \
-                  				--build-arg REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL} \
-                  				-t ${FRONTEND_IMAGE}:latest .
-                				"""
-					}
+					sh "docker build -t ${BACKEND_IMAGE}:latest ."
 				}
 			}
 		}
@@ -52,7 +46,13 @@ pipeline {
 		stage('Build Frontend Docker Image') {
 			steps {
 				dir('frontend') {
-					sh "docker build -t ${FRONTEND_IMAGE}:latest ."
+					withCredentials([string(credentialsId: 'react-backend-url', variable: 'REACT_APP_API_BASE_URL')]) {
+                                                sh """
+                                                docker build \
+                                                --build-arg REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL} \
+                                                -t ${FRONTEND_IMAGE}:latest .
+                                                """
+                                        }
 				}
 			}
 		}
