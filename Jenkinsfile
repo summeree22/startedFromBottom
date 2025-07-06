@@ -38,7 +38,12 @@ pipeline {
 		stage('Build Backend Docker Image') {
 			steps {
 				dir('backend') {
-					sh "docker build -t ${BACKEND_IMAGE}:latest ."
+					withCredentials([string(credentialsId: 'react-backend-url', variable: 'REACT_APP_API_BASE_URL')]) {
+                				sh """
+                				docker build \
+                  				--build-arg REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL} \
+                  				-t ${FRONTEND_IMAGE}:latest .
+                				"""
 				}
 			}
 		}
