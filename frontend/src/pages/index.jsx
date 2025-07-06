@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../styles/MainPage.css';
 
 const MainPage = () => {
+  console.log('API Base URL:', process.env.REACT_APP_API_BASE_URL);
+
   const clickRef = useRef({ x: 0, y: 0 });
 
   const [showPolaroid, setShowPolaroid] = useState(false);
