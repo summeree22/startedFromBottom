@@ -8,7 +8,9 @@ pipeline {
 		FRONTEND_IMAGE = "${DOCKER_REPO}/sfb-frontend"
 		FRONTEND_CONTAINER = "sFb-frontend"
 		NETWORK_NAME = "startedfrombottom_sFb-network"
-		ENV_FILE = ".env"		
+		ENV_FILE = ".env"
+		FRONTEND_URL = credentials('FRONTEND_URL')
+		BACKEND_PORT = "8080"		
 	}
 
 	stages {
@@ -95,6 +97,7 @@ pipeline {
 				--network ${NETWORK_NAME} \
 				--env-file backend/${ENV_FILE} \
 				-p 8080:8080 \
+				-e FRONTEND_URL=${FRONTEND_URL} \
 				${BACKEND_IMAGE}:latest
 				"""
 			}
