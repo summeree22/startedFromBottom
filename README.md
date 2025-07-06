@@ -1,5 +1,7 @@
 # 🌍 Fullstack Travel Memory Map Project
 
+![MainPage](./MainPage.png)
+
 This is a fullstack solo project that allows users to visually record and share travel memories.  
 Users can click anywhere on the main page to leave a memory by uploading a photo and entering information such as **where**, **when**, and **what was impressive**.  
 Saved memories are displayed as Polaroid-style images, and clicking them reveals detailed info with **Edit** and **Remove** options.
