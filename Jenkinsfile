@@ -99,7 +99,7 @@ pipeline {
 				sh """
 				docker run -d --name ${FRONTEND_CONTAINER} \
 				--network ${NETWORK_NAME} \
-				-p 3000:3000 \
+				-p 3000:80 \
 				${FRONTEND_IMAGE}:latest
 				"""
 			}
