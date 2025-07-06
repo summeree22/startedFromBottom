@@ -22,8 +22,7 @@ Saved memories are displayed as Polaroid-style images, and clicking them reveals
 ### DevOps
 - Jenkins for CI/CD pipeline  
 - Docker for containerization  
-- AWS EC2 for hosting  
-- Jenkins Credentials Plugin to manage all secrets and environment variables securely, replacing local `.env` files  
+- AWS EC2 for hosting 
 
 ### Design & Development Tools
 - Figma for UI/UX design  
