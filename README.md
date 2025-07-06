@@ -133,6 +133,12 @@ You can test these with Postman using raw JSON + multipart/form-data for image u
 
 > You can test these with Postman using raw JSON + `multipart/form-data` for image upload.
 
+![ClickAPolaroid](./ClickAPolaroid.png)
+When click a polaroid, this form pops up
+
+![EditInfo](./EditInfo.png)
+Editing...
+
 ## 🔄 Jenkins CI/CD Pipeline
 
 ### Jenkinsfile Summary:
@@ -166,6 +172,8 @@ pipeline {
 ```
 
 ## 🤖 MCP Integration for Frontend Development
+
+![FigmaToCursor](./FigmaToCursor.jpg)
 
 This project uses **Figma MCP** (Midjourney Code Prototype) combined with **Cursor AI** to automatically generate React frontend code from Figma UI designs, streamlining the development process.
 
