@@ -44,6 +44,7 @@ pipeline {
                   				--build-arg REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL} \
                   				-t ${FRONTEND_IMAGE}:latest .
                 				"""
+					}
 				}
 			}
 		}
