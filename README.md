@@ -173,7 +173,7 @@ pipeline {
 
 ## 🤖 MCP Integration for Frontend Development
 
-![FigmaToCursor](./FigmaToCursor.jpg)
+![FigmaToCursor](./FigmaToCursor.gif)
 
 This project uses **Figma MCP** (Midjourney Code Prototype) combined with **Cursor AI** to automatically generate React frontend code from Figma UI designs, streamlining the development process.
 
