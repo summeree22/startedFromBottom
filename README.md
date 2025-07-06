@@ -40,6 +40,7 @@ Saved memories are displayed as Polaroid-style images, and clicking them reveals
 
 ## 📂 Project Structure
 
+```bash
 startedFromBottom/
 ├── backend/
 │ ├── routes/
@@ -66,6 +67,7 @@ startedFromBottom/
 ├── docker-compose.yml
 ├── Jenkinsfile
 ├── README.md
+```
 
 ## 🔧 Setup and Installation
 
