@@ -12,7 +12,7 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-function createUpload() {
+function upload() {
   return multer({
     storage: multerS3({
       s3,
